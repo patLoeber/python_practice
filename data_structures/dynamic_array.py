@@ -53,8 +53,8 @@ class DynamicArray:
         last_item = self._A[self._n - 1]
         self._A[self._n - 1] = None  # help garbage collection
         self._n -= 1
-        if self._n <= self._capacity/2:
-            self._resize(int(self._capacity/2))
+        if 0 < self._n < self._capacity//4:
+            self._resize(self._capacity//2)
         return last_item
 
     def delete(self, index):
@@ -64,8 +64,8 @@ class DynamicArray:
             self._A[k] = self._A[k + 1]
         self._A[self._n-1] = None
         self._n -= 1
-        if self._n < self._capacity/4:
-            self._resize(int(self._capacity/2))
+        if 0 < self._n < self._capacity//4:
+            self._resize(self._capacity//2)
 
     def remove(self, item):
         for k in range(self._n):
@@ -74,8 +74,8 @@ class DynamicArray:
                     self._A[i] = self._A[i+1]
                 self._A[self._n-1] = None
                 self._n -= 1
-                if self._n < self._capacity/4:
-                    self._resize(int(self._capacity/2))
+                if 0 < self._n < self._capacity // 4:
+                    self._resize(self._capacity // 2)
                 return
         raise ValueError('item not found')
 
