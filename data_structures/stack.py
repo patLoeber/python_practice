@@ -11,7 +11,7 @@ class ArrayStack:
     def __len__(self):
         return len(self._data)
 
-    def __str__(self):
+    def __repr__(self):
         return repr(self._data)
 
     def is_empty(self):

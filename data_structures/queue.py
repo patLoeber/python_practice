@@ -16,7 +16,7 @@ class ArrayQueue:
     def __len__(self):
         return self._size
 
-    def __str__(self):
+    def __repr__(self):
         return repr(self._data)
 
     def is_empty(self):

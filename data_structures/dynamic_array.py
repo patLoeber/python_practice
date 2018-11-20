@@ -15,7 +15,7 @@ class DynamicArray:
     def __len__(self):
         return self._n
 
-    def __str__(self):
+    def __repr__(self):
         if self.is_empty():
             return '[]'
         return '[' + ' '.join(str(self._A[k]) for k in range(self._n)) + ']'

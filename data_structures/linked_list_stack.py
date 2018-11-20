@@ -1,3 +1,7 @@
+class Empty(Exception):
+    pass
+
+
 class LinkedListStack:
     # LIFO stack implementation using a singly linked list for storage
 	# Top of the stack is the head of the list
@@ -15,7 +19,7 @@ class LinkedListStack:
     def __len__(self):
         return self._size
 
-    def __str__(self):
+    def __repr__(self):
         if self.is_empty():
             return '[]'
         string = ''
@@ -35,12 +39,12 @@ class LinkedListStack:
 
     def top(self):
         if self.is_empty():
-            raise ValueError('Stack is empty')
+            raise Empty('Stack is empty')
         return self._head._element
 
     def pop(self):
         if self.is_empty():
-            raise ValueError('Stack is empty')
+            raise Empty('Stack is empty')
         first = self._head._element
         self._head = self._head._next
         self._size -= 1
@@ -50,6 +54,7 @@ class LinkedListStack:
 l = LinkedListStack()
 l.push(1)
 l.push(2)
+l.push(3)
 print(l)
 a = l.pop()
 print(a)
